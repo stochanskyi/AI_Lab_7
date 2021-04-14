@@ -6,4 +6,5 @@
     <string name="candidates_description">Please select candidate to fill marks</string>
     <string name="reset">Reset</string>
     <string name="continue_action">Continue</string>
+    <string name="analyzing_results">Analyze results</string>
 </resources>

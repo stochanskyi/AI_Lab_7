@@ -70,6 +70,9 @@ class CharacteristicsFragment : Fragment(R.layout.fragment_positions) {
             val action = CharacteristicsFragmentDirections.navigateToCandidates(CandidatesBehaviour())
             Navigation.findNavController(binding.root).navigate(action)
         }
+        viewModel.openResultsLiveData.observe(viewLifecycleOwner) {
+            Navigation.findNavController(binding.root).navigate(R.id.navigate_to_results)
+        }
     }
 
     private fun setPositions(binding: FragmentPositionsBinding, items: List<CategoryViewData>) {

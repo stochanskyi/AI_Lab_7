@@ -18,21 +18,17 @@
 
         <action
             android:id="@+id/navigate_to_candidates"
-            app:destination="@id/fragment_candidates" />
+            app:destination="@id/fragment_positions" />
+
+        <action
+            android:id="@+id/navigate_to_results"
+            app:destination="@id/fragment_results" />
 
     </fragment>
 
     <fragment
-        android:id="@+id/fragment_candidates"
-        android:name="com.mars.ai_lab_7.presentation.characteristics.CharacteristicsFragment"
-        tools:layout="@layout/fragment_positions">
-
-        <argument
-            android:name="behaviour"
-            app:nullable="true"
-            android:defaultValue="@null"
-            app:argType="com.mars.ai_lab_7.presentation.characteristics.behaviour.CharacteristicsBehaviour" />
-
-    </fragment>
+        android:id="@+id/fragment_results"
+        android:name="com.mars.ai_lab_7.presentation.results.ResultsFragment"
+        tools:layout="@layout/fragment_results" />
 
 </navigation>

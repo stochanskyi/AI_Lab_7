@@ -7,6 +7,8 @@ data class CharacteristicInfo(
 ) {
     var value: Float? = defaultValue
 
+    fun valueOrDefault(): Float = value ?: defaultValue
+
     fun reset() {
         value = defaultValue
     }
