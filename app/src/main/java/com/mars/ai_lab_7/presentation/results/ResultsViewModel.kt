@@ -8,6 +8,7 @@ import com.mars.ai_lab_7.data.positions.CategoryInfo
 import com.mars.ai_lab_7.data.positions.DefaultValuesStorage
 import com.mars.ai_lab_7.presentation.results.models.CandidateViewData
 import com.mars.ai_lab_7.presentation.results.models.ResultItemViewData
+import com.mars.ai_lab_7.utils.livedata.SingleLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -21,6 +22,9 @@ class ResultsViewModel @Inject constructor() : ViewModel() {
 
     private val _resultsLiveData: MutableLiveData<List<ResultItemViewData>> = MutableLiveData()
     val resultsLiveData: LiveData<List<ResultItemViewData>> = _resultsLiveData
+
+    private val _openChartLiveData: MutableLiveData<List<CategoryInfo>> = SingleLiveData()
+    val openChartLiveData: LiveData<List<CategoryInfo>> = _openChartLiveData
 
     init {
         _candidatesLiveData.value = results.map { CandidateViewData(it.id, it.name) }
@@ -36,6 +40,6 @@ class ResultsViewModel @Inject constructor() : ViewModel() {
     }
 
     fun showChart() {
-        //TODO
+        _openChartLiveData.value = results
     }
 }

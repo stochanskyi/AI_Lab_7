@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mars.ai_lab_7.R
@@ -47,6 +48,10 @@ class ResultsFragment: Fragment(R.layout.fragment_results) {
         }
         viewModel.resultsLiveData.observe(viewLifecycleOwner) {
             binding.resultsRecyclerView.adapterAction { setItems(it) }
+        }
+        viewModel.openChartLiveData.observe(viewLifecycleOwner) {
+            val action = ResultsFragmentDirections.navigateToChart(it.toTypedArray())
+            Navigation.findNavController(binding.root).navigate(action)
         }
     }
 

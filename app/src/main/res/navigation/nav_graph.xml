@@ -29,6 +29,23 @@
     <fragment
         android:id="@+id/fragment_results"
         android:name="com.mars.ai_lab_7.presentation.results.ResultsFragment"
-        tools:layout="@layout/fragment_results" />
+        tools:layout="@layout/fragment_results">
+
+        <action
+            android:id="@+id/navigate_to_chart"
+            app:destination="@id/fragment_chart" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_chart"
+        android:name="com.mars.ai_lab_7.presentation.chart.ChartFragment"
+        tools:layout="@layout/fragment_results_chart">
+
+        <argument
+            android:name="values"
+            app:argType="com.mars.ai_lab_7.data.positions.CategoryInfo[]" />
+
+    </fragment>
 
 </navigation>
