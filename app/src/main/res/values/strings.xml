@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">AI_Lab_7</string>
-    <string name="positions_title">Please select positions to fill experts marks</string>
+    <string name="positions_title">Positions</string>
+    <string name="positions_description">Please select positions to fill experts marks</string>
+    <string name="candidates_title">Candidates</string>
+    <string name="candidates_description">Please select candidate to fill marks</string>
     <string name="reset">Reset</string>
     <string name="continue_action">Continue</string>
 </resources>

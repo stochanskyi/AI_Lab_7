@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/title_textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="20dp"
@@ -18,7 +19,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:text="@string/positions_title" />
+            tools:text="@string/positions_description" />
 
         <RadioGroup
             android:id="@+id/positions_radio_group"

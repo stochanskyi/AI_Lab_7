@@ -1,6 +1,6 @@
 package com.mars.ai_lab_7.data.positions
 
-data class PositionInfo(
+data class CategoryInfo(
     val id: Int,
     val name: String,
     val characteristicsValues: List<CharacteristicInfo>

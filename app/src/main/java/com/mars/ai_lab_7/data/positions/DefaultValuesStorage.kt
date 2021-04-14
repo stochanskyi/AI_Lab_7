@@ -20,8 +20,8 @@ object DefaultValuesStorage {
         listOf(1F, 0.6F, 0.9F, 0.2F, 0.4F, 0.8F, 0.4F, 0.5F, 0.6F, 0.8F),
     )
 
-    val positionsValues: List<PositionInfo> = TextsStorage.positions.mapIndexed { index, name ->
-        PositionInfo(
+    val positionsValues: List<CategoryInfo> = TextsStorage.positions.mapIndexed { index, name ->
+        CategoryInfo(
             index,
             name,
             TextsStorage.characteristics.mapIndexed
@@ -31,11 +31,14 @@ object DefaultValuesStorage {
         )
     }
 
-    val candidatesValues: List<CandidateInfo> = TextsStorage.candidates.mapIndexed { index, name ->
-        CandidateInfo(
+    val candidatesValues: List<CategoryInfo> = TextsStorage.candidates.mapIndexed { index, name ->
+        CategoryInfo(
             index,
             name,
-            TextsStorage.characteristics.zip(candidatesCharacteristicValues[index]).toMap()
+            TextsStorage.characteristics.mapIndexed
+            { i, v ->
+                CharacteristicInfo(i, v, candidatesCharacteristicValues[index][i])
+            }
         )
     }
 }

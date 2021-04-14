@@ -1,8 +1,8 @@
-package com.mars.ai_lab_7.presentation.positions.adapter
+package com.mars.ai_lab_7.presentation.characteristics.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.mars.ai_lab_7.presentation.positions.models.CharacteristicViewData
+import com.mars.ai_lab_7.presentation.characteristics.models.CharacteristicViewData
 
 class CharacteristicsAdapter(
     private val onValueChanged: (id: Int, value: String) -> Unit

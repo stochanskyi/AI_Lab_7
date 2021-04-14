@@ -1,4 +1,4 @@
-package com.mars.ai_lab_7.presentation.positions.adapter
+package com.mars.ai_lab_7.presentation.characteristics.adapter
 
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.core.widget.doAfterTextChanged
 import androidx.recyclerview.widget.RecyclerView
 import com.mars.ai_lab_7.databinding.ViewHolderCharacteristicBinding
-import com.mars.ai_lab_7.presentation.positions.models.CharacteristicViewData
+import com.mars.ai_lab_7.presentation.characteristics.models.CharacteristicViewData
 
 class CharacteristicViewHolder private constructor(
     private val binding: ViewHolderCharacteristicBinding

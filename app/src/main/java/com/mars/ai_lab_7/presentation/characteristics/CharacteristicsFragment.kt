@@ -1,23 +1,34 @@
-package com.mars.ai_lab_7.presentation.positions
+package com.mars.ai_lab_7.presentation.characteristics
 
 import android.os.Bundle
 import android.view.View
 import android.widget.RadioButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mars.ai_lab_7.R
 import com.mars.ai_lab_7.databinding.FragmentPositionsBinding
-import com.mars.ai_lab_7.presentation.positions.adapter.CharacteristicsAdapter
-import com.mars.ai_lab_7.presentation.positions.models.PositionViewData
+import com.mars.ai_lab_7.presentation.characteristics.adapter.CharacteristicsAdapter
+import com.mars.ai_lab_7.presentation.characteristics.behaviour.CandidatesBehaviour
+import com.mars.ai_lab_7.presentation.characteristics.behaviour.PositionsBehaviour
+import com.mars.ai_lab_7.presentation.characteristics.models.CategoryViewData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class PositionsFragment : Fragment(R.layout.fragment_positions) {
-    private val viewModel: PositionsViewModel by viewModels()
+class CharacteristicsFragment : Fragment(R.layout.fragment_positions) {
+    private val viewModel: CharacteristicsViewModel by viewModels()
 
     private val positionsMap: MutableMap<Int, Int> = mutableMapOf()
+
+    private val args: CharacteristicsFragmentArgs by navArgs()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.setup(args.behaviour ?: PositionsBehaviour())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         FragmentPositionsBinding.bind(view).run {
@@ -49,12 +60,19 @@ class PositionsFragment : Fragment(R.layout.fragment_positions) {
         viewModel.valuesLiveData.observe(viewLifecycleOwner) {
             binding.valuesRecyclerView.adapterAction { setItems(it) }
         }
-        viewModel.isValuesValid.observe(viewLifecycleOwner) {
+        viewModel.isValuesValidLiveData.observe(viewLifecycleOwner) {
             binding.continueButton.isEnabled = it
+        }
+        viewModel.screenDescriptionResLiveData.observe(viewLifecycleOwner) {
+            binding.titleTextView.text = getString(it)
+        }
+        viewModel.openCandidatesLiveData.observe(viewLifecycleOwner) {
+            val action = CharacteristicsFragmentDirections.navigateToCandidates(CandidatesBehaviour())
+            Navigation.findNavController(binding.root).navigate(action)
         }
     }
 
-    private fun setPositions(binding: FragmentPositionsBinding, items: List<PositionViewData>) {
+    private fun setPositions(binding: FragmentPositionsBinding, items: List<CategoryViewData>) {
         binding.positionsRadioGroup.removeAllViews()
         positionsMap.clear()
 

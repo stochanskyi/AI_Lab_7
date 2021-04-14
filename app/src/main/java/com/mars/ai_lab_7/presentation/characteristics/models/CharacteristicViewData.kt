@@ -1,4 +1,4 @@
-package com.mars.ai_lab_7.presentation.positions.models
+package com.mars.ai_lab_7.presentation.characteristics.models
 
 data class CharacteristicViewData(
     val id: Int,
