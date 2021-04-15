@@ -1,5 +1,6 @@
 package com.mars.ai_lab_7.data.analyzer
 
+import com.mars.ai_lab_7.data.AppSettings
 import com.mars.ai_lab_7.data.positions.CategoryInfo
 import com.mars.ai_lab_7.data.positions.CharacteristicInfo
 import kotlin.math.min
@@ -31,10 +32,15 @@ object CandidatesAnalyzer {
     ): Float {
         val l = mutableListOf<Float>()
         for (i in candidateCharacteristics.indices) {
-            l += min(
-                candidateCharacteristics[i].valueOrDefault(),
-                positionCharacteristics[i].valueOrDefault()
-            )
+            l += if (AppSettings.useMaxProd) {
+                candidateCharacteristics[i].valueOrDefault() *
+                        positionCharacteristics[i].valueOrDefault()
+            } else  {
+                min(
+                    candidateCharacteristics[i].valueOrDefault(),
+                    positionCharacteristics[i].valueOrDefault()
+                )
+            }
         }
         return l.maxOrNull()!!
     }

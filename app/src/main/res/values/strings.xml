@@ -7,4 +7,6 @@
     <string name="reset">Reset</string>
     <string name="continue_action">Continue</string>
     <string name="analyzing_results">Analyze results</string>
+    <string name="max_nmin">Max\nMin</string>
+    <string name="max_nprod">Max\nProd</string>
 </resources>

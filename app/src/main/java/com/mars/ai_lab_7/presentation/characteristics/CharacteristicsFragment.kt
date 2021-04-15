@@ -71,7 +71,7 @@ class CharacteristicsFragment : Fragment(R.layout.fragment_positions) {
             Navigation.findNavController(binding.root).navigate(action)
         }
         viewModel.openResultsLiveData.observe(viewLifecycleOwner) {
-            Navigation.findNavController(binding.root).navigate(R.id.navigate_to_results)
+            Navigation.findNavController(binding.root).navigate(R.id.navigate_to_analyze_type)
         }
     }
 

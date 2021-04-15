@@ -21,6 +21,17 @@
             app:destination="@id/fragment_positions" />
 
         <action
+            android:id="@+id/navigate_to_analyze_type"
+            app:destination="@id/fragment_analyze_type" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_analyze_type"
+        android:name="com.mars.ai_lab_7.presentation.AnalyzeTypeFragment"
+        tools:layout="@layout/fragment_analyze_type">
+
+        <action
             android:id="@+id/navigate_to_results"
             app:destination="@id/fragment_results" />
 
