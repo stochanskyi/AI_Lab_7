@@ -72,6 +72,12 @@ class CharacteristicsViewModel @Inject constructor() : ViewModel(), Characterist
         validateValues()
     }
 
+    fun setToZero() {
+        positions.forEach { it.characteristicsValues.forEach { it.value = 0f } }
+        _valuesLiveData.value = createCharacteristicsViewData(selectedPosition)
+        validateValues()
+    }
+
     fun onContinue() {
         behaviour.onContinue()
     }

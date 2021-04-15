@@ -49,6 +49,7 @@ class CharacteristicsFragment : Fragment(R.layout.fragment_positions) {
         binding.positionsRadioGroup.setOnCheckedChangeListener { _, checkedId ->
             positionsMap[checkedId]?.let { viewModel.onPositionChanged(it) }
         }
+        binding.resetToZero.setOnClickListener { viewModel.setToZero() }
         binding.resetButton.setOnClickListener { viewModel.resetValues() }
         binding.continueButton.setOnClickListener { viewModel.onContinue() }
     }

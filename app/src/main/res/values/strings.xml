@@ -9,4 +9,5 @@
     <string name="analyzing_results">Analyze results</string>
     <string name="max_nmin">Max\nMin</string>
     <string name="max_nprod">Max\nProd</string>
+    <string name="reset_to_0">Reset to 0</string>
 </resources>
